@@ -8,6 +8,13 @@ RSpec.describe Array, "#my_flatten" do
     end
   end
 
+  context 'with empty nested arrays' do
+    let (:array) { [[[[[[[[[]]]]]]]], []] }
+    it 'return empty array' do
+      expect(array.flatten).to eq []
+    end
+  end
+
   context 'with 1 item array' do
     let (:array) { [1] }
     it 'returns the same array with the same single item' do
